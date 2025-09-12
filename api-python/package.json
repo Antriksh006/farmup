@@ -1,0 +1,7 @@
+{
+  "name": "api-python",
+  "scripts": {
+    "deps": "poetry install",
+    "dev": "poetry run uvicorn main:app --reload --port 8000"
+  }
+}

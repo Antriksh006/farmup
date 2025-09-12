@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "dev": "mvn spring-boot:run",
+    "build": "mvn clean package"
+  }
+}
