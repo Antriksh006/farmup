@@ -19,9 +19,9 @@
   },
   "packageManager": "npm@10.9.3",
   "workspaces": [
-    "apps/*",
     "packages/*",
     "api-python",
-    "api-java"
+    "api-java",
+    "frontend-next"
   ]
 }
