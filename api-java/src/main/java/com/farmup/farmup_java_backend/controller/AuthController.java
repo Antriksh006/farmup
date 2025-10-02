@@ -5,6 +5,8 @@ import com.farmup.farmup_java_backend.model.User;
 import com.farmup.farmup_java_backend.repository.UserRepository;
 import com.farmup.farmup_java_backend.service.EmailService;
 import com.farmup.farmup_java_backend.service.OtpService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,5 +67,17 @@ public class AuthController {
             }
         }
         return "❌ Invalid OTP or User not found";
+    }
+
+    @PostMapping("/verify-email")
+    public ResponseEntity<?> verifyEmail(@RequestParam String email, @RequestParam String otp) {
+        String storedOtp = otpStore.get(email);
+        if (storedOtp == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No OTP found for this email or OTP expired");
+        }
+
+        if (!storedOtp.equals(otp)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid OTP");
+        }
     }
 }
