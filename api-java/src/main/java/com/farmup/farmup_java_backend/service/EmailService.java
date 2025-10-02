@@ -42,12 +42,12 @@ public class EmailService {
                 "email", toEmail
         );
 
-        String subject = "Your Fyndd OTP";
+        String subject = "Your FarmUp OTP";
         String htmlContent = "<p>Hi there,</p>"
                 + "<p>Your One-Time Password (OTP) for signup is: "
                 + "<strong style='font-size: 18px;'>" + otp + "</strong></p>"
                 + "<p>This OTP is valid for 10 minutes.</p>"
-                + "<br><p>Thanks,<br>Team Fyndd</p>";
+                + "<br><p>Thanks,<br>Team FarmUp</p>";
 
         Map<String, Object> body = new HashMap<>();
         body.put("sender", sender);
@@ -79,12 +79,12 @@ public class EmailService {
                 "email", toEmail
         );
 
-        String subject = "Fyndd Password Reset OTP";
+        String subject = "FarmUp Password Reset OTP";
         String htmlContent = "<p>Hello,</p>"
                 + "<p>You requested to reset your password. Please use the OTP below to proceed:</p>"
                 + "<p style='font-size: 20px; font-weight: bold;'>" + otp + "</p>"
                 + "<p>This OTP is valid for 10 minutes. If you didn't request a password reset, you can safely ignore this message.</p>"
-                + "<br><p>– Team Fyndd</p>";
+                + "<br><p>– Team FarmUp</p>";
 
         Map<String, Object> body = new HashMap<>();
         body.put("sender", sender);

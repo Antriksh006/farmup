@@ -17,10 +17,12 @@ public class User {
     @Column(unique = true, nullable = false)
     private String phone;
     private boolean verified;
+    private String email;
 
-    public User(String name, String phone) {
+    public User(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;
+        this.email = email;
     }
 
     public User() {
@@ -57,5 +59,13 @@ public class User {
 
     public void setVerified(boolean verified) {
         this.verified = verified;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
