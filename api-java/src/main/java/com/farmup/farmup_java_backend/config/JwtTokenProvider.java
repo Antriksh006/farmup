@@ -13,6 +13,7 @@ import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 @Component
@@ -41,7 +42,7 @@ public class JwtTokenProvider {
 
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>(extraClaims);
-        User user = userRepository.findByPhone(userDetails.getUsername());
+        User user = userRepository.getByPhone(userDetails.getUsername());
 
         if (user != null) {
             claims.put("name", user.getPhone());

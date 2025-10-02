@@ -45,7 +45,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-            User user = userRepository.findByPhone(username);
+            User user = userRepository.getByPhone(username);
             if (user == null) {
                 return;
             }
@@ -55,7 +55,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     new SimpleGrantedAuthority("ROLE_USER")
             );
             UserDetails userDetails = org.springframework.security.core.userdetails.User
-                    .withUsername(user.getId())
+                    .withUsername(user.getPhone())
                     .password("") // Empty password since we're using JWT
                     .authorities(authorities)
                     .build();

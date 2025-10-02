@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/farmup.iml" filepath="$PROJECT_DIR$/.idea/farmup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-java/farmup-java-backend.iml" filepath="$PROJECT_DIR$/api-java/farmup-java-backend.iml" />
     </modules>
   </component>
 </project>

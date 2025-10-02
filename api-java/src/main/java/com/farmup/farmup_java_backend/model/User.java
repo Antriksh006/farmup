@@ -4,12 +4,13 @@ package com.farmup.farmup_java_backend.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     private String name;
 
@@ -17,12 +18,20 @@ public class User {
     private String phone;
     private boolean verified;
 
+    public User(String name, String phone) {
+        this.name = name;
+        this.phone = phone;
+    }
 
-    public void setId(String id) {
+    public User() {
+
+    }
+
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -40,5 +49,13 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public boolean isVerified() {
+        return verified;
+    }
+
+    public void setVerified(boolean verified) {
+        this.verified = verified;
     }
 }
