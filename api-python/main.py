@@ -24,9 +24,9 @@ async def ping():
 # -------- Load model and encoders with error handling --------
 try:
     model = load_model("utils/crop_model.h5")
-    scaler = pickle.load(open("scaler.pkl", "rb"))
-    season_enc = pickle.load(open("season_enc.pkl", "rb"))
-    label_enc = pickle.load(open("label_enc.pkl", "rb"))
+    scaler = pickle.load(open("pkl-files/scaler.pkl", "rb"))
+    season_enc = pickle.load(open("pkl-files/season_enc.pkl", "rb"))
+    label_enc = pickle.load(open("pkl-files/label_enc.pkl", "rb"))
     logger.info("All models and encoders loaded successfully")
 except Exception as e:
     logger.error(f"Error loading models/encoders: {e}")

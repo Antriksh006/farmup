@@ -36,3 +36,9 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# VSCODE
+.vscode
+settings.json
+.vscode/settings.json
+.github

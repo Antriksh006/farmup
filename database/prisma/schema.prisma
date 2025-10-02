@@ -8,10 +8,75 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  state  String @id @default(uuid())
-  market String
-  date   DateTime
-  crop   String 
-  price  String
+model Farmer {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String
+  phoneNumber String   @unique
+  coordsLat   Decimal
+  coordsLon   Decimal
+  state       String
+
+  plans       Plan[]
+  createdAt   DateTime @default(now())
+}
+
+model Plan {
+  planId   String  @id @default(uuid()) @db.Uuid
+  farmerId String
+  boundary Json
+  duration Int
+  phaseNumber Int
+  planInfo       PlanInfo?
+
+  phase1   Phase1?
+  phase2   Phase2?
+  phase3   Phase3?
+
+  createdAt DateTime @default(now())
+  farmer   Farmer  @relation(fields: [farmerId], references: [id])
+}
+
+model Phase1 {
+  phaseId     String @id @default(uuid()) @db.Uuid
+  planId      String @unique
+  notes       String?
+  crops       Json?
+  cropDistribution Json?
+
+  plan        Plan   @relation(fields: [planId], references: [planId])
+  createdAt   DateTime @default(now())
+}
+
+model Phase2 {
+  phaseId     String @id @default(uuid()) @db.Uuid
+  planId      String @unique
+  phaseNumber Int
+  specialData String?
+
+  plan        Plan   @relation(fields: [planId], references: [planId])
+  createdAt   DateTime @default(now())
+}
+
+model Phase3 {
+  phaseId     String @id @default(uuid()) @db.Uuid
+  planId      String @unique
+  phaseNumber Int
+  finalReport String?
+
+  plan        Plan   @relation(fields: [planId], references: [planId])
+  createdAt   DateTime @default(now())
+}
+
+model PlanInfo {
+  id        String   @id @default(uuid()) @db.Uuid
+  planId  String   @unique
+  area      Decimal
+  season    String
+  temperature Decimal
+  humidity  Decimal
+  waterAvailability Decimal
+  soilPh Decimal
+  createdAt DateTime @default(now())
+
+  farmer    Plan   @relation(fields: [planId], references: [planId])
 }

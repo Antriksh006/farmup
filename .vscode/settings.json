@@ -1,4 +1,7 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive"
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "postman.settings.dotenv-detection-notification-visibility": false,
+  "json.schemas": [],
+  "json.validate.enable": false
 }
