@@ -42,3 +42,5 @@ yarn-error.log*
 settings.json
 .vscode/settings.json
 .github
+__pycache__/
+*.pyc
