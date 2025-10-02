@@ -79,5 +79,7 @@ public class AuthController {
         if (!storedOtp.equals(otp)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid OTP");
         }
+
+        return ResponseEntity.ok().build();
     }
 }
