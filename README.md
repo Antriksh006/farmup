@@ -71,7 +71,13 @@ model.compile(optimizer="adam",
               metrics=["accuracy"])
 ```
 
-This is where the model is fed data and model is made to predict the best crop recommendations.
+This model takes the processed input features — such as soil nutrients, weather conditions, temperature, humidity, rainfall, and other environmental parameters — and learns the underlying patterns that determine which crop is most suitable for those conditions.
+
+The neural network consists of multiple dense layers that progressively extract higher-level relationships from the data. The relu activations help the model learn complex, non-linear interactions, while the Dropout layer prevents overfitting by randomly deactivating neurons during training.
+
+Finally, the output layer uses a softmax activation, which converts the model’s outputs into probabilities across all crop categories. The crop with the highest probability is selected as the recommended crop.
+
+During training, the model continuously adjusts its internal weights using the Adam optimizer and evaluates its performance using categorical cross-entropy loss and accuracy. Over time, it becomes increasingly accurate at predicting the optimal crop for any given set of input conditions.
 
 ### Geospatial Farm allocator
 
@@ -109,7 +115,11 @@ def recursive_bsp(farm_w, farm_h, crop_alloc, depth=0):
     return allocations
 ```
 
-We use BSP splitter to split the farm into the best and most optimal crop recommendations.
+This module uses a Binary Space Partitioning (BSP) algorithm to divide the farm area into proportional sub-plots based on crop allocation percentages. The function recursively splits the main farm rectangle either vertically or horizontally depending on its shape.
+
+Each crop is assigned a region whose width or height matches its share in the allocation dictionary. When only one crop remains, it receives the entire remaining space.
+
+The final output is a list of rectangular coordinates, each representing the exact portion of land allocated to a specific crop — allowing the system to generate a visual geospatial layout of how the farm should be divided.
 
 ### Use Cases
 
