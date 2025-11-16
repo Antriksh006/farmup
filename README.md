@@ -14,7 +14,7 @@ FarmUP is an AI-powered platform designed to boost productivity and profitabilit
 analysing **real-time weather**, **soil metrics**, and **historical data**, our system delivers hyper-local crop yield
 predictions and a suite of actionable recommendations through an intuitive mobile and web application.
 
-![Alt text](https://ibb.co/CpVBL2Pj "Optional title")
+![Alt text](1.jpg "Optional title")
 
 ## Technical Details
 
